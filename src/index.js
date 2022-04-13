@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
 
-ReactDOM.render(
-  <React.StrictMode>
+// import ReactDOM from 'react-dom';
+import { createRoot } from "react-dom/client";
+
+import "./index.css";
+import App from "./App";
+
+import { Provider } from "react-redux";
+import store from "./store/index";
+
+// ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// npx create-react-app redux-counter
+// yarn add redux react-redux
+// yarn start
+
+// yarn add "@reduxjs/toolkit"   <-- or -->   npm install @reduxjs/toolkit
